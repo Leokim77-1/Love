@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message for Kay</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to bottom, #ff9a9e, #fecfef);
+      overflow: hidden;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .splash-screen {
+      text-align: center;
+      color: white;
+      animation: fadeOut 10s ease-in-out forwards;
+      position: absolute;
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 0;
+      }
+      100% {
+        display: none;
+      }
+    }
+
+    .envelope-section {
+      text-align: center;
+      animation: fadeIn 3s ease-in-out 5s forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .envelope {
+      width: 200px;
+      height: 150px;
+      background: white;
+      margin: 0 auto;
+      position: relative;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .flap {
+      width: 100%;
+      height: 100px;
+      background: #ff6f91;
+      position: absolute;
+      top: -70px;
+      left: 0;
+      border-radius: 8px;
+      transform-origin: bottom;
+      transform: rotateX(0deg);
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .envelope:hover .flap {
+      transform: rotateX(180deg);
+    }
+
+    .love-design {
+      font-size: 1.5rem;
+      color: #ff6f91;
+      margin: 10px;
+    }
+
+    .tap-text {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #fff;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .love-letter-section {
+      text-align: center;
+      color: #fff;
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    .love-letter {
+      background: white;
+      color: #ff6f91;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .love-letter h2 {
+      margin-bottom: 15px;
+    }
+
+    .love-letter p {
+      margin-bottom: 10px;
+    }
+
+    .closing {
+      margin-top: 15px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div class="splash-screen">
+    <h1>Hello Kay❤️</h1>
+    <p>Kwame has a message for you...</p>
+  </div>
+
+  <!-- Envelope Section -->
+  <div class="envelope-section hidden">
+    <div class="envelope">
+      <div class="love-design">❤️💌❤️</div>
+      <div class="flap"></div>
+    </div>
+    <p class="tap-text">Tap here to see Kwame's message</p>
+  </div>
+
+  <!-- Love Letter Section -->
+  <div class="love-letter-section hidden">
+    <div class="love-letter">
+      <h2>My Dear Kay ❤️,</h2>
+      <p>
+        From the moment I met you, I couldn't help but notice your radiance and beauty.  
+        Our connection feels magical, and I dream of the wonderful journey we will share together.  
+        I know in my heart that our bond will stand the test of time.  
+        Here's to our lasting love and cherished moments.
+      </p>
+      <p class="closing">From your soon-to-be boyfriend, Kwame❤️</p>
+    </div>
+  </div>
+
+  <script>
+    // Wait for the splash screen animation to finish
+    setTimeout(() => {
+      document.querySelector('.splash-screen').style.display = 'none';
+      document.querySelector('.envelope-section').classList.remove('hidden');
+    }, 12000); // Changed to 5 seconds
+
+    // Add click event to the envelope section
+    document.querySelector('.envelope-section').addEventListener('click', () => {
+      document.querySelector('.envelope-section').style.display = 'none';
+      document.querySelector('.love-letter-section').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
